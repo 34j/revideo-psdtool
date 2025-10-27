@@ -1,12 +1,4 @@
-/**
-  @module
- */
+import { Voicevox } from 'Voicevox'
+import { Psd } from './Psd.tsx'
 
-import { mySubmodule } from './submodule'
-
-/**
- * Lorem ipsum.
- */
-export const myPackage = (taco = ''): string => `${taco} from my package`
-
-export { mySubmodule }
+export { Psd, Voicevox }
