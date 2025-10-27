@@ -1,4 +1,3 @@
-
 # revideo-psdtool
 
 [![npm package][npm-img]][npm-url]
