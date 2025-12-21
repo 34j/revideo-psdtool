@@ -1,4 +1,8 @@
 onlyBuiltDependencies:
+  - '@ffmpeg-installer/linux-x64'
+  - '@ffprobe-installer/linux-x64'
+  - '@revideo/telemetry'
   - ag-psd-psdtool
   - esbuild
   - msw
+  - puppeteer

@@ -40,7 +40,9 @@
     "test": "vitest --coverage --coverage.include=src",
     "watch": "npm-run-all --race --parallel *:watch",
     "update": "npm-check-updates -u",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "start": "revideo editor --projectFile ./src/project.tsx",
+    "render": "tsc && node dist/render.js"
   },
   "typedocOptions": {
     "entryPoints": [
@@ -78,6 +80,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "6.1.0",
+    "@revideo/cli": "^0.10.4",
+    "@revideo/ui": "^0.10.4",
     "@tsconfig/strictest": "2.0.6",
     "@types/node": "24.9.1",
     "@typescript-eslint/eslint-plugin": "8.46.2",
