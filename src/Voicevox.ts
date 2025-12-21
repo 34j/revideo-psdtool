@@ -16,15 +16,14 @@ export class Voicevox extends Audio {
   public declare readonly text: SimpleSignal<string, this>
 
   public constructor(props: VoicevoxProps) {
-    DependencyContext.collectPromise(
-      new Promise<void>(async (resolve) => {
-        const audioquery = await client.createAudioQuery(props.text, 1)
-        console.log(audioquery)
-        const buffer = await audioquery.synthesis(1)
-        // to base64
-        this.src(URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' })))
-        resolve()
-      }),
+    DependencyContext.collectPromise((async (resolve) => {
+      const audioquery = await client.createAudioQuery(props.text, 1)
+      // console.log(audioquery)
+      const buffer = await audioquery.synthesis(1)
+      // to base64
+      this.src(URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' })))
+      resolve()
+    })(),
     )
     props.src = 'tmp.wav'
     super(props)

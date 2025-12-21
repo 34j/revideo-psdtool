@@ -1,11 +1,11 @@
 import type { ImgProps } from '@revideo/2d/lib/components'
 import type { SimpleSignal } from '@revideo/core/lib/signals'
+import type { RenderOptions } from 'ag-psd-psdtool'
 import { Img } from '@revideo/2d/lib/components'
 import { nodeName, signal } from '@revideo/2d/lib/decorators'
 import { DependencyContext } from '@revideo/core/lib/signals'
 import { readPsd } from 'ag-psd'
-import type { RenderOptions } from 'ag-psd-psdtool';
-import { getSchema, renderPsd } from 'ag-psd-psdtool'
+import { renderPsd } from 'ag-psd-psdtool'
 
 export interface PsdProps extends ImgProps {
   psdSrc: string
@@ -24,8 +24,8 @@ export class Psd extends Img {
 
   @signal()
   public declare readonly psdToolData: SimpleSignal<Record<string, unknown>, this>
-  
-  @signal() 
+
+  @signal()
   public declare readonly psdToolRenderOptions: SimpleSignal<RenderOptions | undefined, this>
 
   public constructor(props: PsdProps) {
@@ -49,7 +49,7 @@ export class Psd extends Img {
 
     const psdsrc = this.psdSrc()
     const image = document.createElement('img')
-    DependencyContext.collectPromise(new Promise(async (resolve, reject) => {
+    DependencyContext.collectPromise((async (resolve, reject) => {
       const request = await fetch(psdsrc)
       const buffer = await request.arrayBuffer()
       const psd = readPsd(buffer)
@@ -60,8 +60,7 @@ export class Psd extends Img {
         image.addEventListener('error', reject)
       }
       Psd.blobContentsPool[src] = image.src
-    }
-    ))
+    })())
     return image
   }
 };
