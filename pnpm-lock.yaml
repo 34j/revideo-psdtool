@@ -14,6 +14,9 @@ importers:
       '@revideo/core':
         specifier: ^0.10.4
         version: 0.10.4
+      ag-psd:
+        specifier: ^29.0.0
+        version: 29.0.0
       ag-psd-psdtool:
         specifier: ^1.1.4
         version: 1.1.4
@@ -860,6 +863,9 @@ packages:
 
   ag-psd@28.4.1:
     resolution: {integrity: sha512-Cf5xQHScL8VUH2X2jjYbjv6NrZIJ7BkKNw5/FCE8wGv94yLQ4NyfRdvTXB0JJ0qC5IY1s+kVKJbA6JpO2n4hBw==}
+
+  ag-psd@29.0.0:
+    resolution: {integrity: sha512-XNNDUkWvHigwsLoJlBx2JdpnAPWujzgKVffVchZ3JScmqTNC+8ZQo5qmN/ahhZqHVEOHTP1nvcpR8f/EIRDhgQ==}
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -3188,6 +3194,11 @@ snapshots:
       es-toolkit: 1.41.0
 
   ag-psd@28.4.1:
+    dependencies:
+      base64-js: 1.5.1
+      pako: 2.1.0
+
+  ag-psd@29.0.0:
     dependencies:
       base64-js: 1.5.1
       pako: 2.1.0

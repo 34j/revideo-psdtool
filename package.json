@@ -72,6 +72,7 @@
   "dependencies": {
     "@revideo/2d": "^0.10.4",
     "@revideo/core": "^0.10.4",
+    "ag-psd": "^29.0.0",
     "ag-psd-psdtool": "^1.1.4",
     "voicevox-client": "^0.3.1"
   },
