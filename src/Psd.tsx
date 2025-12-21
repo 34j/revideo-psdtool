@@ -1,31 +1,39 @@
 import type { ImgProps } from '@revideo/2d/lib/components'
 import type { SimpleSignal } from '@revideo/core/lib/signals'
 import { Img } from '@revideo/2d/lib/components'
-import { signal } from '@revideo/2d/lib/decorators'
+import { nodeName, signal } from '@revideo/2d/lib/decorators'
 import { DependencyContext } from '@revideo/core/lib/signals'
-import PSD from '@webtoon/psd'
-import Client from 'voicevox-client'
-
-const client = new Client('http://127.0.0.1:50021')
+import { readPsd } from 'ag-psd'
+import type { RenderOptions } from 'ag-psd-psdtool';
+import { getSchema, renderPsd } from 'ag-psd-psdtool'
 
 export interface PsdProps extends ImgProps {
-  psdsrc: string
+  psdSrc: string
+  psdToolData: Record<string, unknown>
+  psdToolRenderOptions?: RenderOptions
 }
 
+@nodeName('Psd')
 export class Psd extends Img {
   private static blobContentsPool: Record<string, string> = {}
 
   private readonly imageElement = document.createElement('img')
 
   @signal()
-  public declare readonly psdsrc: SimpleSignal<string, this>
+  public declare readonly psdSrc: SimpleSignal<string, this>
+
+  @signal()
+  public declare readonly psdToolData: SimpleSignal<Record<string, unknown>, this>
+  
+  @signal() 
+  public declare readonly psdToolRenderOptions: SimpleSignal<RenderOptions | undefined, this>
 
   public constructor(props: PsdProps) {
     super({ ...props, src: null })
   }
 
   protected override image(): HTMLImageElement {
-    const src = `${this.psdsrc()}`
+    const src = `${this.psdSrc()}`
     if (Psd.blobContentsPool[src]) {
       this.imageElement.src = Psd.blobContentsPool[src]
       if (!this.imageElement.complete) {
@@ -39,48 +47,21 @@ export class Psd extends Img {
       return this.imageElement
     }
 
-    const psdsrc = this.psdsrc()
+    const psdsrc = this.psdSrc()
     const image = document.createElement('img')
-    DependencyContext.collectPromise(
-      new Promise<void>(async (resolve, reject) => {
-        const request = await fetch(psdsrc)
-        const buffer = await request.arrayBuffer()
-        // const psd = readPsd(buffer);
-        const psd = PSD.parse(buffer)
-        console.log(psd)
-        for (const layer of psd.children) {
-          layer.hidden = false
-        }
-        psd.children[4].hidden = true
-        const blob = psd.canvas.toDataURL('image/png')
-        image.src = blob
-        image.src = blob
-        console.log(blob)
-        if (!image.complete) {
-          DependencyContext.collectPromise(
-            new Promise((resolve, reject) => {
-              image.addEventListener('load', resolve)
-              image.addEventListener('error', reject)
-            }),
-          )
-        }
-        Psd.blobContentsPool[src] = image.src
-        resolve()
-      }),
-    )
+    DependencyContext.collectPromise(new Promise(async (resolve, reject) => {
+      const request = await fetch(psdsrc)
+      const buffer = await request.arrayBuffer()
+      const psd = readPsd(buffer)
+      const blob = renderPsd(psd, this.psdToolData(), this.psdToolRenderOptions()).toDataURL('image/png')
+      image.src = blob
+      if (!image.complete) {
+        image.addEventListener('load', resolve)
+        image.addEventListener('error', reject)
+      }
+      Psd.blobContentsPool[src] = image.src
+    }
+    ))
     return image
-    // DependencyContext.collectPromise(
-    //   new Promise<void>(async (resolve) => {
-    //     const request = await fetch("https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png");
-    //     const blob = URL.createObjectURL(await request.blob());
-    //     this.add(
-    //       <Img
-    //         src={blob}
-    //         width={1920}
-    //       />
-    //     )
-    //     resolve();
-    //   })
-    // );
   }
 };

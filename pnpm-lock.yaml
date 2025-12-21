@@ -17,6 +17,9 @@ importers:
       ag-psd-psdtool:
         specifier: ^1.1.4
         version: 1.1.4
+      voicevox-client:
+        specifier: ^0.3.1
+        version: 0.3.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: 6.1.0
@@ -2270,6 +2273,9 @@ packages:
         optional: true
       jsdom:
         optional: true
+
+  voicevox-client@0.3.1:
+    resolution: {integrity: sha512-5KFZczRHWMEHzqIrE8VjYJ8OkFerUyIVwRPL2XlW+iuWaX6LREBSAKLZpaX3MaH2warhFo5NQ2b779e9dTsOeA==}
 
   vscode-oniguruma@1.7.0:
     resolution: {integrity: sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==}
@@ -4779,6 +4785,8 @@ snapshots:
       - terser
       - tsx
       - yaml
+
+  voicevox-client@0.3.1: {}
 
   vscode-oniguruma@1.7.0: {}
 

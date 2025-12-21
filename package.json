@@ -72,7 +72,8 @@
   "dependencies": {
     "@revideo/2d": "^0.10.4",
     "@revideo/core": "^0.10.4",
-    "ag-psd-psdtool": "^1.1.4"
+    "ag-psd-psdtool": "^1.1.4",
+    "voicevox-client": "^0.3.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "6.1.0",
