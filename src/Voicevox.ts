@@ -3,6 +3,8 @@ import type { SimpleSignal } from '@revideo/core/lib/signals'
 import { Audio } from '@revideo/2d/lib/components'
 import { signal } from '@revideo/2d/lib/decorators'
 import { DependencyContext } from '@revideo/core/lib/signals'
+import { cache, cached } from 'motion-canvas-cache'
+
 import Client from 'voicevox-client'
 
 const client = new Client('http://127.0.0.1:50021')
@@ -21,11 +23,17 @@ export class Voicevox extends Audio {
       // console.log(audioquery)
       const buffer = await audioquery.synthesis(1)
       // to base64
-      this.src(URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' })))
+      const url = URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }))
+      await cache(url)
+      const cachedUrl = cached(url)
+      if (!cachedUrl) {
+        throw new Error('Failed to cache audio')
+      }
+      this.src(cachedUrl)
       resolve()
     })(),
     )
-    props.src = 'tmp.wav'
+    props.src = ''
     super(props)
   }
 

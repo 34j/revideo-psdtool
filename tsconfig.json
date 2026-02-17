@@ -4,6 +4,7 @@
     "target": "ES2016",
     "jsx": "react-jsx",
     "lib": ["dom", "ESNext"],
+    "experimentalDecorators": true,
     "baseUrl": "src",
     "module": "CommonJS",
     "allowImportingTsExtensions": true,

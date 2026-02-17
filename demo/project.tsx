@@ -2,7 +2,6 @@ import { Img, makeScene2D } from '@revideo/2d'
 
 import { all, chain, createRef, makeProject, waitFor } from '@revideo/core'
 import { Psd } from '../src/Psd'
-import psdUrl from './ccchu.psd'
 
 /**
  * The Revideo scene
@@ -12,7 +11,7 @@ const scene = makeScene2D('scene', function* (view) {
   yield view.add(
     <>
       <Psd
-        psdsrc={psdUrl}
+        psdsrc="./ccchu.psd"
         width={800}
       />
     </>,

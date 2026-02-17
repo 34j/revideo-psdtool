@@ -41,8 +41,8 @@
     "watch": "npm-run-all --race --parallel *:watch",
     "update": "npm-check-updates -u",
     "semantic-release": "semantic-release",
-    "start": "revideo editor --projectFile ./src/project.tsx",
-    "render": "tsc && node dist/render.js"
+    "start": "revideo editor --projectFile ./demo/project.tsx",
+    "render": "tsc --project tsconfig.json && node dist/render.js"
   },
   "typedocOptions": {
     "entryPoints": [
@@ -72,10 +72,16 @@
     ]
   },
   "dependencies": {
+    "@preact/signals": "^2.5.1",
     "@revideo/2d": "^0.10.4",
     "@revideo/core": "^0.10.4",
+    "@revideo/renderer": "^0.10.4",
     "ag-psd": "^29.0.0",
     "ag-psd-psdtool": "^1.1.4",
+    "motion-canvas-cache": "^0.1.1",
+    "preact": "^10.28.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "voicevox-client": "^0.3.1"
   },
   "devDependencies": {
@@ -93,6 +99,7 @@
     "playwright": "1.56.1",
     "typedoc": "0.28.14",
     "typescript": "5.9.3",
+    "vite": "^7.3.0",
     "vitest": "4.0.3"
   }
 }
