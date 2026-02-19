@@ -28,9 +28,15 @@ const scene = makeScene2D('scene', function* (view) {
   )
   videoRef().play()
   yield* waitFor(1)
-  psdRef().psdToolData({ right_eye: 'wink' })
+  // See https://34j.github.io/react-ag-psd-psdtool/
+  // for options of psdToolData for your PSD file
+  psdRef().psdToolData({ right_eye: 'wink' }, 1)
   yield* waitFor(1)
   psdRef().psdToolData({}).psdToolRenderOptions({ flipx: true })
+  yield* waitFor(1)
+  psdRef().psdToolData({ logo: false, mouth: 'dot' })
+  yield* waitFor(1)
+  psdRef().psdToolData({ logo: false })
   yield* waitFor(1)
 })
 
