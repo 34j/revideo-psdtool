@@ -5,8 +5,10 @@
     "jsx": "react-jsx",
     "lib": ["dom", "ESNext"],
     "experimentalDecorators": true,
-    "baseUrl": "src",
     "module": "CommonJS",
+    "paths": {
+      "*": ["./src/*"]
+    },
     "allowImportingTsExtensions": true,
     "declaration": true,
     "emitDeclarationOnly": true,

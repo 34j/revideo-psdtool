@@ -1,5 +1,4 @@
 import { makeScene2D, Video } from '@revideo/2d'
-
 import { createRef, makeProject, waitFor } from '@revideo/core'
 import { Psd } from '../src'
 
@@ -12,16 +11,16 @@ const scene = makeScene2D('scene', function* (view) {
   view.add(
     <>
       <Video
-        src="/demo/ToHYNSkgZww.mkv"
+        src="/demo/ToHYNSkgZww.mp4"
         height="100%"
         ref={videoRef}
       />
       <Psd
         psdSrc="/demo/ccchu.psd"
         psdToolData={{}}
-        width={300}
+        width={400}
         x={-100}
-        y={120}
+        y={85}
         ref={psdRef}
       />
     </>,

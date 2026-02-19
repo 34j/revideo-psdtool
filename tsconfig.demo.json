@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsxImportSource": "@revideo/2d/lib",
+    "outDir": "dist/demo"
+  },
+  "include": [
+    "demo/**/*"
+  ]
+}

@@ -56,7 +56,7 @@ export class Psd extends Img {
       const blob = renderPsd(psd, this.psdToolData(), this.psdToolRenderOptions(),
       ).toDataURL('image/png')
       image.src = blob
-      if (!image.complete) {
+      if (!image.complete && resolve !== undefined && reject !== undefined) {
         image.addEventListener('load', resolve, { once: true })
         image.addEventListener('error', reject, { once: true })
       }

@@ -1,3 +1,3 @@
-import { Psd } from './Psd.tsx'
+import { Psd } from './Psd'
 
 export { Psd }

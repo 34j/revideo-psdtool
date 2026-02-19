@@ -16,7 +16,9 @@
 
 ---
 
-TODO: Project Description.
+<video controls src="https://raw.githubusercontent.com/34j/revideo-psdtool/main/output/project.mp4" style="max-width: 100%; height: auto;" />
+
+[Demo](demo/project.tsx)
 
 ## Installation
 
@@ -26,11 +28,35 @@ npm install revideo-psdtool
 
 ## Usage
 
-```ts
-import { myPackage } from 'revideo-psdtool'
+```tsx
+import { makeScene2D } from '@revideo/2d'
+import { createRef, waitFor } from '@revideo/core'
+import { Psd } from 'revideo-psdtool'
 
-myPackage('hello')
-// => 'hello from my package'
+const scene = makeScene2D('scene', function* (view) {
+  const psdRef = createRef<Psd>()
+  view.add(
+    <>
+      <Psd
+        psdSrc="/demo/ccchu.psd"
+        psdToolData={{}}
+        width={400}
+        x={-100}
+        y={85}
+        ref={psdRef}
+      />
+    </>,
+  )
+
+  // 1. Change look
+  // See https://34j.github.io/react-ag-psd-psdtool/
+  // for options of psdToolData for your PSD file
+  psdRef().psdToolData({ right_eye: 'wink' })
+
+  // 2. Flip the PSD without "mirroring"
+  // (unchanged text, flipped hair ornaments, etc.)
+  psdRef().psdToolRenderOptions({ flipx: true })
+})
 ```
 
 [build-img]:https://github.com/34j/revideo-psdtool/actions/workflows/release.yml/badge.svg

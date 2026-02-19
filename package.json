@@ -42,7 +42,7 @@
     "update": "npm-check-updates -u",
     "semantic-release": "semantic-release",
     "start": "revideo editor --projectFile ./demo/project.tsx",
-    "render": "tsc --project tsconfig.json && node dist/render.js"
+    "render": "tsc --project tsconfig.demo.json && node dist/demo/demo/render.js"
   },
   "typedocOptions": {
     "entryPoints": [
@@ -72,15 +72,15 @@
     ]
   },
   "dependencies": {
-    "@preact/signals": "^2.5.1",
+    "@preact/signals": "^2.8.1",
     "@revideo/2d": "^0.10.4",
     "@revideo/core": "^0.10.4",
     "@revideo/renderer": "^0.10.4",
-    "ag-psd": "^29.0.0",
-    "ag-psd-psdtool": "^1.1.4",
-    "preact": "^10.28.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "ag-psd": "^30.1.0",
+    "ag-psd-psdtool": "^1.1.6",
+    "preact": "^10.28.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "6.1.0",
@@ -88,6 +88,7 @@
     "@revideo/ui": "^0.10.4",
     "@tsconfig/strictest": "2.0.6",
     "@types/node": "24.9.1",
+    "@types/react": "^19.2.14",
     "@typescript-eslint/eslint-plugin": "8.46.2",
     "@vitest/browser": "4.0.3",
     "@vitest/browser-playwright": "4.0.3",
@@ -97,7 +98,7 @@
     "playwright": "1.56.1",
     "typedoc": "0.28.14",
     "typescript": "5.9.3",
-    "vite": "^7.3.0",
+    "vite": "^7.3.1",
     "vitest": "4.0.3"
   }
 }
