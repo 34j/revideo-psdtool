@@ -16,9 +16,9 @@
 
 ---
 
-<video controls src="https://raw.githubusercontent.com/34j/revideo-psdtool/main/output/project.mp4" style="max-width: 100%; height: auto;" />
+https://github.com/user-attachments/assets/bb503b7e-49f6-4a32-8fdc-669a865b975f
 
-[Demo](demo/project.tsx)
+[Source](demo/project.tsx)
 
 ## Installation
 
