@@ -26,9 +26,6 @@ importers:
       ag-psd-psdtool:
         specifier: ^1.1.4
         version: 1.1.4
-      motion-canvas-cache:
-        specifier: ^0.1.1
-        version: 0.1.1
       preact:
         specifier: ^10.28.0
         version: 10.28.0
@@ -38,9 +35,6 @@ importers:
       react-dom:
         specifier: ^19.2.3
         version: 19.2.3(react@19.2.3)
-      voicevox-client:
-        specifier: ^0.3.1
-        version: 0.3.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: 6.1.0
@@ -2469,9 +2463,6 @@ packages:
   mlly@1.8.0:
     resolution: {integrity: sha512-l8D9ODSRWLe2KHJSifWGwBqpTZXIXTeo8mlKjY+E2HAakaTeNpqAyBZ8GSqLzHgw4XmHmC8whvpjJNMbFZN7/g==}
 
-  motion-canvas-cache@0.1.1:
-    resolution: {integrity: sha512-BLVbCGgIqcKvrbqoy7ZCerb6eg5xBYRtRyaTw1HLKBztuQiJzCtSMenNKheSKCpHtD3+/ITzRj5xvoLu4sfmaw==}
-
   mp4-wasm@1.0.6:
     resolution: {integrity: sha512-iXVP+YK/aLDkdl9Iy+QQgAYL5/dxEDA1+uYEBW6heEYJkg6gkTGgD2Sz4hciryqr2kJoDCRGfPmgH0A1WHMULQ==}
 
@@ -2612,9 +2603,6 @@ packages:
   parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
-
-  path-browserify@1.0.1:
-    resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
   path-exists@4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
@@ -3243,9 +3231,6 @@ packages:
         optional: true
       jsdom:
         optional: true
-
-  voicevox-client@0.3.1:
-    resolution: {integrity: sha512-5KFZczRHWMEHzqIrE8VjYJ8OkFerUyIVwRPL2XlW+iuWaX6LREBSAKLZpaX3MaH2warhFo5NQ2b779e9dTsOeA==}
 
   vscode-oniguruma@1.7.0:
     resolution: {integrity: sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==}
@@ -6002,10 +5987,6 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.6.1
 
-  motion-canvas-cache@0.1.1:
-    dependencies:
-      path-browserify: 1.0.1
-
   mp4-wasm@1.0.6: {}
 
   mp4box@0.5.4: {}
@@ -6154,8 +6135,6 @@ snapshots:
   parse-svg-path@0.1.2: {}
 
   parseurl@1.3.3: {}
-
-  path-browserify@1.0.1: {}
 
   path-exists@4.0.0: {}
 
@@ -6797,8 +6776,6 @@ snapshots:
       - terser
       - tsx
       - yaml
-
-  voicevox-client@0.3.1: {}
 
   vscode-oniguruma@1.7.0: {}
 

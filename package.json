@@ -78,11 +78,9 @@
     "@revideo/renderer": "^0.10.4",
     "ag-psd": "^29.0.0",
     "ag-psd-psdtool": "^1.1.4",
-    "motion-canvas-cache": "^0.1.1",
     "preact": "^10.28.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "voicevox-client": "^0.3.1"
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "6.1.0",

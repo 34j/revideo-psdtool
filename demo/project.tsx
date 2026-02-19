@@ -1,36 +1,37 @@
-import { Img, makeScene2D } from '@revideo/2d'
+import { makeScene2D, Video } from '@revideo/2d'
 
-import { all, chain, createRef, makeProject, waitFor } from '@revideo/core'
-import { Psd } from '../src/Psd'
+import { createRef, makeProject, waitFor } from '@revideo/core'
+import { Psd } from '../src'
 
 /**
  * The Revideo scene
  */
 const scene = makeScene2D('scene', function* (view) {
-  const logoRef = createRef<Img>()
-  yield view.add(
+  const psdRef = createRef<Psd>()
+  const videoRef = createRef<Video>()
+  view.add(
     <>
+      <Video
+        src="/demo/ToHYNSkgZww.mkv"
+        height="100%"
+        ref={videoRef}
+      />
       <Psd
-        psdsrc="./ccchu.psd"
-        width={800}
+        psdSrc="/demo/ccchu.psd"
+        psdToolData={{}}
+        width={300}
+        x={-100}
+        y={120}
+        ref={psdRef}
       />
     </>,
   )
-
+  videoRef().play()
   yield* waitFor(1)
-
-  view.add(
-    <Img
-      width="1%"
-      ref={logoRef}
-      src="https://revideo-example-assets.s3.amazonaws.com/revideo-logo-white.png"
-    />,
-  )
-
-  yield* chain(
-    all(logoRef().scale(40, 2), logoRef().rotation(360, 2)),
-    logoRef().scale(60, 1),
-  )
+  psdRef().psdToolData({ right_eye: 'wink' })
+  yield* waitFor(1)
+  psdRef().psdToolData({}).psdToolRenderOptions({ flipx: true })
+  yield* waitFor(1)
 })
 
 /**
@@ -41,7 +42,7 @@ export default makeProject({
   settings: {
     // Example settings:
     shared: {
-      size: { x: 1920, y: 1080 },
+      size: { x: 640, y: 480 },
     },
   },
 })

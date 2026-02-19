@@ -39,8 +39,8 @@ export class Psd extends Img {
       if (!this.imageElement.complete) {
         DependencyContext.collectPromise(
           new Promise((resolve, reject) => {
-            this.imageElement.addEventListener('load', resolve)
-            this.imageElement.addEventListener('error', reject)
+            this.imageElement.addEventListener('load', resolve, { once: true })
+            this.imageElement.addEventListener('error', reject, { once: true })
           }),
         )
       }
@@ -57,8 +57,8 @@ export class Psd extends Img {
       ).toDataURL('image/png')
       image.src = blob
       if (!image.complete) {
-        image.addEventListener('load', resolve)
-        image.addEventListener('error', reject)
+        image.addEventListener('load', resolve, { once: true })
+        image.addEventListener('error', reject, { once: true })
       }
       Psd.blobContentsPool[src] = image.src
     })())
