@@ -2,10 +2,17 @@
   "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
     "target": "ES2016",
-    "lib": ["ESNext"],
-    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@revideo/2d/lib",
+    "lib": ["dom", "ESNext"],
+    "experimentalDecorators": true,
     "module": "CommonJS",
+    "paths": {
+      "*": ["./src/*"]
+    },
+    "allowImportingTsExtensions": true,
     "declaration": true,
+    "emitDeclarationOnly": true,
     "outDir": "dist"
   },
   "include": ["src/**/*.ts", "test/**/*.ts"]
